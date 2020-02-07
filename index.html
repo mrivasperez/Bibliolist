@@ -35,11 +35,17 @@
             <!--  !!!!!!!!!!!!!!!!!!!!!
                 limit height to x pixels so that it doesn't jump! -->
             <input type="submit" value="Add Book" class="btn btn-outline-dark btn-block" style="min-height: 35px;">
-        </form>
+        </form> <br>
         <!-- Search form -->
-        <form action=""></form>
+        <form>
+            <div class="form-group">
+                <label for="search">Search</label>
+                <input type="text" id="search" onkeyup="thisSearch()" class="form-control" placeholder="Search by title, author, or genre...">
+            </div>
+ 
+        </form>
         <!-- Table where books go -->
-        <table class="table table-striped mt-5">
+        <table class="table table-striped mt-5" id="myTable">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -53,5 +59,29 @@
         </table>
     </div>
     <script src="assets/script.js"></script>
+    <script src="assets/search.js"></script>
+    <script>
+        function thisSearch() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+    </script>
 </body>
 </html>
