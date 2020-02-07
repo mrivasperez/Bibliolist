@@ -1,4 +1,5 @@
 // Add event listener
+document.getElementById('search').addEventListener('change', search);
 
 function search() {
     // Declare variables
