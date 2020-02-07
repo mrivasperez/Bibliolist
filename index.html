@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bibliolist</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/boostrapBootswatchLumen.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <!-- Image of books created by Lluisa Iborra from the Noun Project -->
+        <div class="header mb-5 p-4 text-center">
+            <img src="assets/books.svg" alt="">
+            <h1 class="display-3"> Biblioteque</h1>
+            <p>It's time you organized your books.</p>
+        </div>
+        <form id="book-form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN#</label>
+                <input type="text" id="isbn" class="form-control">
+            </div>
+            <!--  !!!!!!!!!!!!!!!!!!!!!
+                limit height to x pixels so that it doesn't jump! -->
+            <input type="submit" value="Add Book" class="btn btn-outline-dark btn-block" style="min-height: 35px;">
+        </form>
+        <!-- Table where books go -->
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN#</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+            </tbody>
+        </table>
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+</html>
