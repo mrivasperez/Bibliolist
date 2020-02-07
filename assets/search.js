@@ -1,4 +1,6 @@
-document.getElementById('search').addEventListener('keypress', () => {
+document.getElementById('search').addEventListener('keyup', search);
+
+function search(search) {
     input = document.getElementById("search");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
@@ -16,4 +18,4 @@ document.getElementById('search').addEventListener('keypress', () => {
           }
         }
       }
-    });
+}
