@@ -1,9 +1,9 @@
 //BOOK
 class Book {
-    constructor(title, author, isbn) {
+    constructor(title, author, genre) {
         this.title = title;
         this.author = author;
-        this.isbn = isbn;
+        this.genre = genre;
     }
 }
 
@@ -30,7 +30,7 @@ class UI {
         row.innerHTML = `
             <td>${book.title}</td>
             <td>${book.author}</td>
-            <td>${book.isbn}</td>
+            <td>${book.genre}</td>
             <td><a href="#" class="btn btn-outline-danger btn-sm delete">X</a></td>
         `;
         // append the row to the list
@@ -67,7 +67,7 @@ class UI {
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
-        document.querySelector('#isbn').value = '';
+        document.querySelector('#genre').value = '';
     };
 
 };
@@ -101,13 +101,13 @@ class Store {
 
     };
 
-    // remove book from local storage by their isbn since it's their unique id
-    static removeBook(isbn) {
+    // remove book from local storage by their genre since it's their unique id
+    static removeBook(genre) {
         const books = Store.getBooks();
         // loop through books
         books.forEach((book, index) => {
-            // if isbn matches one input to remove
-            if(book.isbn === isbn){
+            // if genre matches one input to remove
+            if(book.genre === genre){
                 // slice matched book out of the array using index
                 books.splice(index, 1);
             };
@@ -127,17 +127,17 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     //get form values
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
-    const isbn = document.querySelector('#isbn').value;
+    const genre = document.querySelector('#genre').value;
 
     // validate form input
-    if(title === '' || author === '' || isbn === '') {
+    if(title === '' || author === '' || genre === '') {
         // show error message prompting user to fill in all fields
         UI.showAlert('Please fill in all of the fields.', 'danger')
     } else {
         // let user know the book was added
         UI.showAlert('The book was added successfully.','success')
         // instantiate book
-        const book = new Book(title, author, isbn);
+        const book = new Book(title, author, genre);
         // add book to the ui
         UI.addBookToList(book);
         // add book to local storage
