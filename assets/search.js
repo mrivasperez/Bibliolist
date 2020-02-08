@@ -9,13 +9,15 @@ function search(search) {
     const table = document.getElementById("myTable");
     const tr = table.getElementsByTagName("tr");
 
+    // Loop through all of the table rows, and hide those that don't match the search input
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
-          txtValue = td.textContent || td.innerText;
+          const txtValue = td.textContent || td.innerText;
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
+            // hide if they don't math search input
             tr[i].style.display = "none";
           }
         }
