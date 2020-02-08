@@ -1,11 +1,13 @@
+// select the search by id and add event listener for typing
 document.getElementById('search').addEventListener('keyup', search);
 
+// search function
 function search(search) {
-    input = document.getElementById("search");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    console.log(input.value)
+    // declare const
+    const input = document.getElementById("search");
+    const filter = input.value.toUpperCase();
+    const table = document.getElementById("myTable");
+    const tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
