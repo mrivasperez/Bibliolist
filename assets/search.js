@@ -14,10 +14,12 @@ function search(search) {
         td = tr[i].getElementsByTagName("td")[0];
         if (td) {
           const txtValue = td.textContent || td.innerText;
+          // if txtValue content is in the indexOf filter
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            // keep displayed
             tr[i].style.display = "";
           } else {
-            // hide if they don't math search input
+            // hide if don't math search input
             tr[i].style.display = "none";
           }
         }
